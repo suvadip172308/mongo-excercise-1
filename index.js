@@ -24,25 +24,38 @@ async function getCourses(){
     .select({name: 1, author: 1});
 }
 
-async function displayCourse(){
+async function runExercise1(){
   const course = await getCourses();
   console.log(course);
 }
-
-displayCourse(); 
 */
 
-/* Exercise 2 */
-async function getAuthorAndCourse() {
+/* Exercise 2 
+async function getCourses() {
   return await Course.find({isPublished: true})
     .or([{tags: 'frontend'},{tags: 'backend'}])
     .sort({price: -1})
     .select({name: 1, author: 1, price: 1});
 }
 
-async function run(){
-  const course = await getAuthorAndCourse();
+async function runExercise2(){
+  const course = await getCourses();
+  console.log(course);
+}
+*/
+
+/* Exercise 3 */
+
+async function getCourses() {
+  return await Course.find({isPublished: true, price: {$lte: 15}})
+    .or({name: /.*by.*/});
+}
+
+async function runExercise3(){
+  const course = await getCourses();
   console.log(course);
 }
 
-run();
+//runExercise1();
+//runExercise2();
+runExercise3();

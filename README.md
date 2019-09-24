@@ -12,6 +12,10 @@
   - Pick only their name, author and price
   - Display them
 
+*Excercise 3*
+- Get all published courses which are $15 or less
+  or have the word `by` in their title
+
 Data is given in `excercise` directory
   - excercise.json is all data
   - excercise.txt is the command to import data in mongodb
